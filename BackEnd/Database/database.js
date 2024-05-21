@@ -17,19 +17,19 @@ sql =
 db.run(
   sql,
   [
-    "Toyota",
-    "bZ4X",
-    43070,
+    "Lexus",
+    "RZ 450e LUXURY AWD",
+    65880,
     5,
-    "Front Wheel Drive",
-    1557 /*litre*/,
+    "All Wheel Drive",
+    988 /*litre*/,
     160 /* KMH */,
-    405 /* KM YE KADAR */,
-    "7.5" /* 0-100 */,
+    315 /* KM YE KADAR */,
+    "5.6" /* 0-100 */,
     "6.6 kW AC",
-    "30 km/h",
+    "28 km/h",
     "147 kW DC",
-    "510 km/h",
+    "480 km/h",
   ],
   (err) => {
     if (err) throw err;
