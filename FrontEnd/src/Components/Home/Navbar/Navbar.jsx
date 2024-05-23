@@ -1,33 +1,23 @@
 import React, { useEffect, useState } from "react";
 import "./Navbar.css";
 import logo from "./voltvitrinLogo.png";
+import CarsLogo from "./CarsLogo";
 
-function Navbar() {
+function Navbar({ Carlogo }) {
   const [isCarsMenuOpen, setIsCarsMenuOpen] = useState(false);
-
-  useEffect(() => {
-    fetch("http://localhost:3000/?type=brands")
-      .then((response) => response.json())
-      .then((data) =>
-        data.forEach((data) => {
-          console.log(data);
-        })
-      )
-      .catch((error) => console.error("Error fetching data:", error));
-  }, []);
 
   const handleCarsClick = () => {
     setIsCarsMenuOpen(!isCarsMenuOpen);
   };
 
   return (
-    <nav className="border-2 relative">
+    <nav className="border-1 relative">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <div className="flex items-center space-x-3 rtl:space-x-reverse">
           <img src={logo} className="h-12" alt="VoltVitrin" />
         </div>
-        <div className="flex md:order-2">
-          <div className="relative hidden md:block">
+        <div className="flex lg:order-2">
+          <div className="relative hidden lg:block">
             <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
               <svg
                 className="w-4 h-4 text-gray-000 text-black"
@@ -56,7 +46,7 @@ function Navbar() {
           <button
             data-collapse-toggle="navbar-search"
             type="button"
-            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-black rounded-lg md:hidden"
+            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-black rounded-lg lg:hidden"
             aria-controls="navbar-search"
             aria-expanded="false"
           >
@@ -79,45 +69,47 @@ function Navbar() {
           </button>
         </div>
         <div
-          className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
+          className="items-center justify-between hidden w-full lg:flex lg:w-auto lg:order-1"
           id="navbar-search"
         >
-          <div className="relative mt-3 md:hidden">
+          <div className="relative mt-3 lg:hidden">
             <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none"></div>
           </div>
-          <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium md:space-x-28 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 text-3xl">
+          <ul className="flex flex-col p-4 lg:p-0 mt-4 font-medium lg:space-x-28 rtl:space-x-reverse lg:flex-row lg:mt-0 lg:border-0 text-3xl">
             <li>
-              <a href="#" className="block py-2 px-3 rounded md:p-0">
+              <a href="#" className="block py-2 px-3 rounded lg:p-0">
                 Home
               </a>
             </li>
             <li className="">
               <a
                 href="#"
-                className="block py-2 px-3 md:p-0"
+                className="block py-2 px-3 lg:p-0"
                 onClick={handleCarsClick}
               >
                 Cars
               </a>
-              {isCarsMenuOpen && (
-                <div className="absolute left-0 top-full w-full bg-white border-t-2 border-black shadow-lg">
-                  <ul className="max-w-screen-xl mx-auto p-4 flex flex-row wrap gap-4">
-                    <li>
-                      <a className="logolink" href="">
-                        <img
-                          className="carlogo"
-                          src="./Logos/audi-logo.png"
-                          alt=""
-                        />
-                        <p>Audi</p>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              )}
+              <div
+                className={`Animation ${
+                  isCarsMenuOpen ? "open" : ""
+                } absolute left-0 top-full w-full bg-white border-t-2 border-black shadow-lg`}
+              >
+                <ul className="logos max-w-screen-xl mx-auto p-4 text-center ">
+                  <li>
+                    <a className="logolink" href="">
+                      <img
+                        className="carlogo"
+                        src="./Logos/Cars-logo.png"
+                        alt=""
+                      />
+                    </a>
+                  </li>
+                  <CarsLogo Carlogo={Carlogo} />
+                </ul>
+              </div>
             </li>
             <li>
-              <a href="#" className="block py-2 px-3 md:p-0">
+              <a href="#" className="block py-2 px-3 lg:p-0">
                 Compare
               </a>
             </li>

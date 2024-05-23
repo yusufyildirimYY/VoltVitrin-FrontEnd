@@ -1,0 +1,25 @@
+.BrandsContainer {
+  max-height: 200px;
+}
+.Brands {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+}
+.BrandLogoCenter {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+}
+.BrandLink {
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.BrandLogo {
+  max-width: 200px;
+}

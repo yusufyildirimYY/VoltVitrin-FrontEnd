@@ -1,12 +1,45 @@
 .navbar {
   height: auto;
+  margin: 0px;
 }
 .carlogo {
-  width: 200px;
-  height: 75px;
+  transition: transform 1s;
 }
-
+.carlogo:hover {
+  transform: scale(1.05);
+}
+.carlogo:not(:hover) {
+  transform: scale(1);
+  transition: transform 1s; /* Yalnızca dönüşüm için geçiş tanımı */
+}
 .logolink {
   padding: 5px;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logos {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 30px;
+  grid-row-gap: 0px;
+}
+.Animation {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 1s cubic-bezier(0.5, 0, 0, 0.75);
+  position: relative;
+  z-index: 5;
+}
+.Animation.open {
+  max-height: 700px;
+}
+
+.logocenter {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
 }
