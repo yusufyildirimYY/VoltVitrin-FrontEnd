@@ -9,7 +9,7 @@ app.use(cors());
 app.get("/", (req, res) => {
   const type = req.query.type;
   switch (type) {
-    case "/":
+    case "all":
       readItems((err, rows) => {
         if (err) {
           res.status(500).send(err);
