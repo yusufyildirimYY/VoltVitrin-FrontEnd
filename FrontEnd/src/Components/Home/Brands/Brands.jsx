@@ -1,12 +1,26 @@
-import BrandsLogo from "./BrandsLogo";
+import BrandsLogoDiv from "./BrandsLogoDiv";
 import "./Brands.css";
+import { useEffect, useRef } from "react";
 const Brands = ({ Carlogo }) => {
+  const scrollRef = useRef(null);
+
+  useEffect(() => {
+    const scroller = scrollRef.current;
+  }, []);
+
   return (
-    <div className="BrandsContainer ">
-      <h1 className="text-center text-7xl">BRANDS</h1>
-      <ul className="Brands border-2">
-        <BrandsLogo Carlogo={Carlogo} />{" "}
-      </ul>
+    <div className="BrandsContainer max-w-screen-xl mx-auto p-4">
+      <h1 className="text-7xl text-center text">Brands</h1>
+      <div ref={scrollRef} data-animated="true" className=" scroller">
+        <ul className="Brands scroller_inner ">
+          {Carlogo.map((car, i) => (
+            <BrandsLogoDiv key={i} BrandLogo={car.BrandLogo} />
+          ))}
+          {Carlogo.map((car, i) => (
+            <BrandsLogoDiv key={i} BrandLogo={car.BrandLogo} />
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };

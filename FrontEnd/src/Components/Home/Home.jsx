@@ -43,7 +43,6 @@ const Home = () => {
       })
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
-  console.log(Database);
   return (
     <>
       <Navbar Carlogo={Carlogo} />
