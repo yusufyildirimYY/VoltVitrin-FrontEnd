@@ -2,17 +2,13 @@ const sqlite3 = require("sqlite3").verbose();
 let sql;
 
 // //Connecting to database
-const db = new sqlite3.Database(
-  "./Database/Cars.db",
-  sqlite3.OPEN_READWRITE,
-  (err) => {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log("Connected to Database");
-    }
+const db = new sqlite3.Database("./Cars.db", sqlite3.OPEN_READWRITE, (err) => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log("Connected to Database");
   }
-);
+});
 
 // //Creating table
 // sql =
@@ -65,7 +61,7 @@ module.exports = { readItems, readBrands };
 // });
 
 //Alter table
-// sql = "ALTER TABLE Cars ADD BrandLogo";
+// sql = "ALTER TABLE Cars ADD ModelImage4";
 // db.run(sql);
 
 // //Deleting table
@@ -77,10 +73,8 @@ module.exports = { readItems, readBrands };
 // db.run(sql);
 
 // Update Row
-sql = "UPDATE Cars SET BrandLogo='./Logos/lexus-logo.png' WHERE Brand='Lexus'";
-// sql = "UPDATE Cars SET Brand='Volvo' WHERE Brand='Volvo '";
-db.run(sql);
-
+sql =
+  "UPDATE Cars SET ModelImage4='./Images/audi-sq8-e-tron/audi-sq8-e-tron-4.jpg' WHERE Model='SQ8 e-tron'";
 db.run(sql);
 
 //Closing database
