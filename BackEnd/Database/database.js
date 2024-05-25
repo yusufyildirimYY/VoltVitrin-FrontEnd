@@ -2,13 +2,17 @@ const sqlite3 = require("sqlite3").verbose();
 let sql;
 
 // //Connecting to database
-const db = new sqlite3.Database("./Cars.db", sqlite3.OPEN_READWRITE, (err) => {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log("Connected to Database");
+const db = new sqlite3.Database(
+  "./Database/Cars.db",
+  sqlite3.OPEN_READWRITE,
+  (err) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log("Connected to Database");
+    }
   }
-});
+);
 
 // //Creating table
 // sql =
