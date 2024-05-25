@@ -9,7 +9,7 @@ const Brands = ({ Carlogo }) => {
   }, []);
 
   return (
-    <div className="BrandsContainer max-w-screen-xl mx-auto p-4">
+    <div className="BrandsContainer max-w-screen-xl mx-auto p-14">
       <h1 className="text-7xl text-center text">Brands</h1>
       <div ref={scrollRef} data-animated="true" className=" scroller">
         <ul className="Brands scroller_inner ">

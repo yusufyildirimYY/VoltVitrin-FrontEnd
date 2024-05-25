@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import CarCanvas from "./CarCanvas/CarCanvas";
 import Navbar from "./Navbar/Navbar";
 import Brands from "./Brands/Brands";
+import CarTabs from "./CarTabs/CarTabs";
 
 const Home = () => {
   const [Carlogo, setCarLogo] = useState([]);
@@ -43,11 +44,13 @@ const Home = () => {
       })
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
+
   return (
     <>
       <Navbar Carlogo={Carlogo} />
       <CarCanvas />
       <Brands Carlogo={Carlogo} />
+      <CarTabs Database={Database} />
     </>
   );
 };
