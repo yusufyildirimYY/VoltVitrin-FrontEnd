@@ -17,6 +17,7 @@ const CarCards = ({ Database, activeTab }) => {
       minimumFractionDigits: 0,
     }).format(price);
   };
+  console.log(activeTab);
 
   return (
     <div className="grid  grid-rows-2	grid-cols-3	gap-16 ">
