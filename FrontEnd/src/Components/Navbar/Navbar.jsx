@@ -92,7 +92,7 @@ function Navbar({ Carlogo }) {
               <div
                 className={`Animation ${
                   isCarsMenuOpen ? "open" : ""
-                } absolute left-0 top-full w-full bg-white border-t-2 border-black shadow-lg`}
+                } absolute left-0 top-full w-full bg-white border-t-2 border-black shadow-lg z-50`}
               >
                 <ul className="logos max-w-screen-xl mx-auto p-4 text-center ">
                   <li>
