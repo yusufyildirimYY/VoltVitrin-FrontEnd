@@ -1,15 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./Navbar.css";
 import logo from "./voltvitrinLogo.png";
-import CarsLogo from "./CarsLogo";
+import { Link } from "react-router-dom";
 
-function Navbar({ Carlogo }) {
-  const [isCarsMenuOpen, setIsCarsMenuOpen] = useState(false);
-
-  const handleCarsClick = () => {
-    setIsCarsMenuOpen(!isCarsMenuOpen);
-  };
-
+function Navbar({}) {
   return (
     <nav className="border-1 relative">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -77,36 +71,14 @@ function Navbar({ Carlogo }) {
           </div>
           <ul className="flex flex-col p-4 lg:p-0 mt-4 font-medium lg:space-x-28 rtl:space-x-reverse lg:flex-row lg:mt-0 lg:border-0 text-3xl">
             <li>
-              <a href="#" className="block py-2 px-3 rounded lg:p-0">
+              <Link to={"/"} className="block py-2 px-3 rounded lg:p-0">
                 Home
-              </a>
+              </Link>
             </li>
             <li className="">
-              <a
-                href="#"
-                className="block py-2 px-3 lg:p-0"
-                onClick={handleCarsClick}
-              >
+              <Link to={"/cars"} className="block py-2 px-3 lg:p-0">
                 Cars
-              </a>
-              <div
-                className={`Animation ${
-                  isCarsMenuOpen ? "open" : ""
-                } absolute left-0 top-full w-full bg-white border-t-2 border-black shadow-lg z-50`}
-              >
-                <ul className="logos max-w-screen-xl mx-auto p-4 text-center ">
-                  <li>
-                    <a className="logolink" href="">
-                      <img
-                        className="carlogo"
-                        src="./Logos/Cars-logo.png"
-                        alt=""
-                      />
-                    </a>
-                  </li>
-                  <CarsLogo Carlogo={Carlogo} />
-                </ul>
-              </div>
+              </Link>
             </li>
             <li>
               <a href="#" className="block py-2 px-3 lg:p-0">

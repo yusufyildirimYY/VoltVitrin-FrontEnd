@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-
 import "./App.css";
 import Home from "./Components/Home/Home";
 import Cars from "./Components/Cars/Cars";
 import Navbar from "./Components/Navbar/Navbar";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   const [Carlogo, setCarLogo] = useState([]);
@@ -26,8 +26,6 @@ function App() {
         setCarLogo(sortedData);
       })
       .catch((error) => console.error("Error fetching data:", error));
-  }, []);
-  useEffect(() => {
     fetch("http://localhost:3000/?type=all")
       .then((response) => response.json())
       .then((data) => {
@@ -45,12 +43,16 @@ function App() {
       })
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
-
   return (
     <>
       <Navbar Carlogo={Carlogo} Database={Database} />
-      {/* <Home Carlogo={Carlogo} Database={Database} /> */}
-      <Cars Database={Database} />
+      <Routes>
+        <Route
+          path="/"
+          element={<Home Carlogo={Carlogo} Database={Database} />}
+        />
+        <Route path="/cars" element={<Cars Database={Database} />} />
+      </Routes>
     </>
   );
 }
