@@ -4,6 +4,7 @@ import Home from "./Components/Home/Home";
 import Cars from "./Components/Cars/Cars";
 import Navbar from "./Components/Navbar/Navbar";
 import { Routes, Route } from "react-router-dom";
+import Compare from "./Components/Compare/Compare";
 
 function App() {
   const [Carlogo, setCarLogo] = useState([]);
@@ -52,6 +53,7 @@ function App() {
           element={<Home Carlogo={Carlogo} Database={Database} />}
         />
         <Route path="/cars" element={<Cars Database={Database} />} />
+        <Route path="/compare" element={<Compare Database={Database} />} />
       </Routes>
     </>
   );
