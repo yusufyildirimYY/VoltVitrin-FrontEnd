@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 function Navbar({}) {
   return (
-    <nav className="border-1 relative">
+    <nav className="border-b-2 relative">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <div className="flex items-center space-x-3 rtl:space-x-reverse">
           <img src={logo} className="h-12" alt="VoltVitrin" />
@@ -81,9 +81,9 @@ function Navbar({}) {
               </Link>
             </li>
             <li>
-              <a href="#" className="block py-2 px-3 lg:p-0">
+              <Link to={"/compare"} className="block py-2 px-3 lg:p-0">
                 Compare
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
