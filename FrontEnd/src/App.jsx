@@ -5,6 +5,7 @@ import Cars from "./Components/Cars/Cars";
 import Navbar from "./Components/Navbar/Navbar";
 import { Routes, Route } from "react-router-dom";
 import Compare from "./Components/Compare/Compare";
+import CarDetail from "./Components/CarDetail/CarDetail";
 
 function App() {
   const [Carlogo, setCarLogo] = useState([]);
@@ -14,7 +15,6 @@ function App() {
     fetch("http://localhost:3000/?type=brands")
       .then((response) => response.json())
       .then((data) => {
-        // Veriyi alfabetik olarak sıralayın
         const sortedData = data.sort((a, b) => {
           if (a.Brand < b.Brand) {
             return -1;
@@ -30,7 +30,6 @@ function App() {
     fetch("http://localhost:3000/?type=all")
       .then((response) => response.json())
       .then((data) => {
-        // Veriyi alfabetik olarak sıralayın
         const sortedData = data.sort((a, b) => {
           if (a.Brand < b.Brand) {
             return -1;
@@ -54,6 +53,10 @@ function App() {
         />
         <Route path="/cars" element={<Cars Database={Database} />} />
         <Route path="/compare" element={<Compare Database={Database} />} />
+        <Route
+          path="/car/:modelName"
+          element={<CarDetail Database={Database} />}
+        />
       </Routes>
     </>
   );

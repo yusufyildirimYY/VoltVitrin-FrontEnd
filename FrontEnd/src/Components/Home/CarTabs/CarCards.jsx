@@ -23,6 +23,7 @@ const CarCards = ({ Database, activeTab }) => {
           Image={car.ModelImage1}
           Name={car.Brand + " " + car.Model}
           Price={car.Price}
+          Database={Database}
         />
       ))}
     </div>

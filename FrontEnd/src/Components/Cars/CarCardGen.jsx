@@ -1,4 +1,7 @@
-const CarCardGen = ({ Image, Name, Price }) => {
+import { Link } from "react-router-dom";
+
+const CarCardGen = ({ Image, Name, Price, Database }) => {
+  console.log(Database);
   const formatPrice = (price) => {
     return new Intl.NumberFormat("en-US", {
       style: "currency",
@@ -6,6 +9,9 @@ const CarCardGen = ({ Image, Name, Price }) => {
       minimumFractionDigits: 0,
     }).format(price);
   };
+  const modelName = Database.find(
+    (car) => car.Brand + " " + car.Model === Name
+  );
 
   return (
     <div className="relative flex max-w-[24rem] flex-col overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
@@ -19,6 +25,14 @@ const CarCardGen = ({ Image, Name, Price }) => {
         <p className="block mt-3 font-sans text-xl antialiased font-normal leading-relaxed text-gray-700">
           {formatPrice(Price)}
         </p>
+      </div>
+      <div className="flex items-center justify-between p-6">
+        <Link
+          to={`/car/${modelName.Model}`}
+          className="block font-sans text-base antialiased font-normal leading-relaxed text-inherit"
+        >
+          Details
+        </Link>
       </div>
     </div>
   );
