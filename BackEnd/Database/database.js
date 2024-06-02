@@ -4,6 +4,7 @@ let sql;
 // //Connecting to database
 const db = new sqlite3.Database(
   "./Database/Cars.db",
+  // "./Cars.db",
   sqlite3.OPEN_READWRITE,
   (err) => {
     if (err) {
@@ -77,8 +78,7 @@ module.exports = { readItems, readBrands };
 // db.run(sql);
 
 // Update Row
-sql =
-  "UPDATE Cars SET ModelImage4='./Images/audi-sq8-e-tron/audi-sq8-e-tron-4.jpg' WHERE Model='SQ8 e-tron'";
+sql = "UPDATE Cars SET Model='Kona Electric' WHERE Model='Kona Electric '";
 db.run(sql);
 
 //Closing database
