@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 
 const CarCardGen = ({ Image, Name, Price, Database }) => {
-  console.log(Database);
   const formatPrice = (price) => {
     return new Intl.NumberFormat("en-US", {
       style: "currency",

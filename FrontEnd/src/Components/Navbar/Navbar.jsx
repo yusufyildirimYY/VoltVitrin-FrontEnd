@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from "react";
 import "./Navbar.css";
 import logo from "./voltvitrinLogo.png";
 import { Link } from "react-router-dom";
 
-function Navbar({}) {
+function Navbar() {
   return (
-    <nav className="border-b-2 relative">
+    <nav className="border-b-2  ">
       <div className="max-w-screen-xl flex  items-center  mx-auto p-4">
-        <ul className="flex flex-col p-0  mt-4 font-medium lg:space-x-52  lg:flex-row lg:mt-0 lg:border-0 text-3xl items-center ">
+        <ul className="flex  p-0   font-medium space-x-52  flex-row mt-0 border-0 text-3xl items-center ">
           <li>
             <img src={logo} className="h-12 " alt="VoltVitrin" />
           </li>
