@@ -18,10 +18,10 @@ const CarCardGen = ({ Image, Name, Price, Database }) => {
         <img src={Image} alt="car image" className="h-44 w-full" />
       </div>
       <div className="p-6 pt-4">
-        <h4 className="block font-sans text-2xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
+        <h4 className="block font-sans text-2xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900 cursor-default">
           {Name}
         </h4>
-        <p className="block mt-3 font-sans text-xl antialiased font-normal leading-relaxed text-gray-700">
+        <p className="block mt-3 font-sans text-xl antialiased font-normal leading-relaxed text-gray-700 cursor-default">
           {formatPrice(Price)}
         </p>
       </div>
