@@ -10,6 +10,7 @@ import {
   useHelper,
   OrbitControls,
   PresentationControls,
+  useDepthBuffer,
 } from "@react-three/drei";
 import { Perf } from "r3f-perf";
 import { AiOutlineFullscreen } from "react-icons/ai";
@@ -152,16 +153,23 @@ function Cards() {
     spotLight4.current.target = mesh4.current;
     spotLight5.current.target = mesh5.current;
   }, []);
+  const depthBuffer = useDepthBuffer();
   return (
     <>
       <SpotLight
+        depthBuffer={depthBuffer}
         ref={spotLight1}
         position={[0, 10, -24]}
         target={mesh1.current}
-        distance={20}
-        angle={1}
-        attenuation={14}
-        anglePower={2}
+        penumbra={0.2}
+        radiusTop={0.4}
+        radiusBottom={25}
+        distance={80}
+        angle={0.45}
+        attenuation={30}
+        anglePower={5}
+        intensity={1}
+        opacity={0.2}
       />
       <mesh ref={mesh1} position={[0, 2, -14.8]}>
         <planeGeometry args={[4, 7]} />
@@ -169,13 +177,19 @@ function Cards() {
       </mesh>
 
       <SpotLight
+        depthBuffer={depthBuffer}
         ref={spotLight2}
         position={[15, 10, -20]}
         target={mesh2.current}
-        distance={20}
-        angle={1}
-        attenuation={14}
-        anglePower={2}
+        penumbra={0.2}
+        radiusTop={0.4}
+        radiusBottom={25}
+        distance={90}
+        angle={0.45}
+        attenuation={30}
+        anglePower={5}
+        intensity={1}
+        opacity={0.2}
       />
       <mesh
         ref={mesh2}
@@ -187,13 +201,19 @@ function Cards() {
       </mesh>
 
       <SpotLight
+        depthBuffer={depthBuffer}
         ref={spotLight3}
         position={[-15, 10, -20]}
         target={mesh3.current}
-        distance={20}
-        angle={1}
-        attenuation={14}
-        anglePower={2}
+        penumbra={0.2}
+        radiusTop={0.4}
+        radiusBottom={25}
+        distance={90}
+        angle={0.45}
+        attenuation={30}
+        anglePower={5}
+        intensity={1}
+        opacity={0.2}
       />
       <mesh
         ref={mesh3}
@@ -205,13 +225,19 @@ function Cards() {
       </mesh>
 
       <SpotLight
+        depthBuffer={depthBuffer}
         ref={spotLight4}
         position={[20, 10, -5]}
         target={mesh4.current}
-        distance={20}
-        angle={1}
-        attenuation={14}
-        anglePower={2}
+        penumbra={0.2}
+        radiusTop={0.4}
+        radiusBottom={25}
+        distance={90}
+        angle={0.45}
+        attenuation={25}
+        anglePower={5}
+        intensity={1}
+        opacity={0.2}
       />
       <mesh
         ref={mesh4}
@@ -223,13 +249,19 @@ function Cards() {
       </mesh>
 
       <SpotLight
+        depthBuffer={depthBuffer}
         ref={spotLight5}
         position={[-20, 10, -5]}
         target={mesh5.current}
-        distance={20}
-        angle={1}
-        attenuation={14}
-        anglePower={2}
+        penumbra={0.2}
+        radiusTop={0.4}
+        radiusBottom={25}
+        distance={90}
+        angle={0.45}
+        attenuation={25}
+        anglePower={5}
+        intensity={1}
+        opacity={0.2}
       />
       <mesh
         ref={mesh5}
