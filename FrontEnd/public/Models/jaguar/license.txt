@@ -1,0 +1,11 @@
+Model Information:
+* title:	jaguar logo
+* source:	https://sketchfab.com/3d-models/jaguar-logo-8ddb43eac9d0465bb10a275f08e4b9af
+* author:	lunartrashonly (https://sketchfab.com/lunartrashonly)
+
+Model License:
+* license type:	CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
+* requirements:	Author must be credited. No commercial use.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "jaguar logo" (https://sketchfab.com/3d-models/jaguar-logo-8ddb43eac9d0465bb10a275f08e4b9af) by lunartrashonly (https://sketchfab.com/lunartrashonly) licensed under CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
