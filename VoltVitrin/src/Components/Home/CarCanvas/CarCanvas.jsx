@@ -1,12 +1,10 @@
 import React, { Suspense, useEffect, useRef, useState } from "react";
-import { Canvas, useFrame, useLoader, useThree } from "@react-three/fiber";
+import { Canvas, useLoader, useThree } from "@react-three/fiber";
 import "./CarCanvas.css";
 import {
   MeshReflectorMaterial,
   SpotLight,
   OrbitControls,
-  useDepthBuffer,
-  Text3D,
   Text,
 } from "@react-three/drei";
 import { Perf } from "r3f-perf";
@@ -123,9 +121,9 @@ function Light() {
     spotLight2.current.target = circle.current;
     spotLight3.current.target = circle.current;
   }, []);
+
   const lfloor = useRef();
   const circle = useRef();
-  const depthBuffer = useDepthBuffer();
   const spotLight1 = useRef();
   const spotLight2 = useRef();
   const spotLight3 = useRef();
@@ -138,10 +136,8 @@ function Light() {
         intensity={5}
         target={lfloor.current}
       />
-      ;
-      <mesh ref={lfloor} position={[0, -1, -5]} receiveShadow />;
+      <mesh ref={lfloor} position={[0, -1, -5]} receiveShadow />
       <SpotLight
-        depthBuffer={depthBuffer}
         ref={spotLight1}
         position={[0, 20, -15]}
         target={circle.current}
@@ -156,7 +152,6 @@ function Light() {
         opacity={0.2}
       />
       <SpotLight
-        depthBuffer={depthBuffer}
         ref={spotLight2}
         position={[15, 20, -10]}
         target={circle.current}
@@ -171,7 +166,6 @@ function Light() {
         opacity={0.2}
       />
       <SpotLight
-        depthBuffer={depthBuffer}
         ref={spotLight3}
         position={[-15, 20, -10]}
         target={circle.current}
@@ -192,7 +186,7 @@ function Light() {
     </>
   );
 }
-function Cards(props) {
+function Cards() {
   const mesh = useRef();
   const taycan = useLoader(GLTFLoader, "./Models/porshe_taycan/taycan.gltf");
 
@@ -207,7 +201,6 @@ function Cards(props) {
         <primitive
           ref={mesh}
           {...bind()}
-          {...props}
           position={[0, -0.45, 0]}
           rotation={[0, 0, 0]}
           object={taycan.scene}
