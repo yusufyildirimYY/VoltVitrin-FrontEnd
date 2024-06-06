@@ -15,7 +15,7 @@ import { AiOutlineFullscreenExit } from "react-icons/ai";
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/Addons.js";
 import { useGesture } from "react-use-gesture";
-import font from "./2.json";
+import font from "./1.ttf";
 
 const CarCanvas = () => {
   const canvasContainerRef = useRef(null);
@@ -84,11 +84,7 @@ const CarCanvas = () => {
             position: [0, 5, 15],
           }}
         >
-          <OrbitControls
-            enableRotate={false}
-            maxDistance={15}
-            minDistance={9}
-          />
+          <OrbitControls enableRotate={false} enabled={false} />
           {/* <Perf /> */}
           <color attach="background" args={["black"]} />
           <mesh
@@ -225,32 +221,26 @@ function Cards(props) {
 function Texts() {
   return (
     <>
-      <Text3D
+      <Text
         font={font}
-        position={[-14, 7, 3]}
-        rotation={[0, 0.5, 0]}
+        position={[-10, 6, 3]}
         curveSegments={32}
-        height={0.1}
-        lineHeight={0.9}
+        lineHeight={1}
         letterSpacing={0.1}
-        size={1.5}
+        rotation={[0, 0.5, 0]}
       >
         {"Most Popular Car\n  Of This Month"}
-      </Text3D>
-      <group>
-        <Text3D
-          font={font}
-          position={[4.5, 5, 3]}
-          rotation={[0, -0.7, 0]}
-          curveSegments={32}
-          height={0.2}
-          lineHeight={0.8}
-          letterSpacing={0.01}
-          size={1}
-        >
-          {"Porsche\nTaycan"}
-        </Text3D>
-      </group>
+      </Text>
+      <Text
+        font={font}
+        position={[9, 6, 3]}
+        rotation={[0, -0.7, 0]}
+        curveSegments={32}
+        lineHeight={1}
+        letterSpacing={0.1}
+      >
+        {"Porsche\nTaycan"}
+      </Text>
     </>
   );
 }
