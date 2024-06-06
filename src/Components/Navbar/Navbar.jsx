@@ -1,6 +1,6 @@
 import "./Navbar.css";
 import { Link, useLocation } from "react-router-dom";
-import { BsLightningFill } from "react-icons/bs";
+// import { BsLightningFill } from "react-icons/bs";
 
 function Navbar() {
   const location = useLocation();
@@ -25,7 +25,7 @@ function Navbar() {
           <li
             className={`flex logo absolute left-5 text-center items-center ${Shadow} cursor-default`}
           >
-            <BsLightningFill className={`h-10 w-7 ${svgShadow}`} />
+            {/* <BsLightningFill className={`h-10 w-7 ${svgShadow}`} /> */}
             <p className="text-3xl">VoltVitrin</p>
           </li>
           <li
