@@ -1,19 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Canvas, useFrame, useLoader, useThree } from "@react-three/fiber";
+import { Canvas, useLoader, useThree } from "@react-three/fiber";
 import "./CarCanvas.css";
 import {
-  CameraControls,
-  Text,
   MeshReflectorMaterial,
-  Environment,
   SpotLight,
-  useHelper,
   OrbitControls,
-  PresentationControls,
   useDepthBuffer,
-  useTexture,
-  PivotControls,
-  Svg,
   Text3D,
 } from "@react-three/drei";
 import { Perf } from "r3f-perf";
@@ -23,7 +15,6 @@ import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/Addons.js";
 import { useGesture } from "react-use-gesture";
 import font from "./2.json";
-import { animated, useSpring, useTransition } from "@react-spring/three";
 
 const CarCanvas = () => {
   const canvasContainerRef = useRef(null);
@@ -93,6 +84,11 @@ const CarCanvas = () => {
             position: [0, 5, 15],
           }}
         >
+          <OrbitControls
+            enableRotate={false}
+            maxDistance={15}
+            minDistance={9}
+          />
           {/* <Perf /> */}
           <color attach="background" args={["black"]} />
           <Light />{" "}
