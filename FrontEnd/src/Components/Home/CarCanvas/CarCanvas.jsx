@@ -91,7 +91,6 @@ const CarCanvas = () => {
           />
           {/* <Perf /> */}
           <color attach="background" args={["black"]} />
-          <Light />{" "}
           <mesh
             receiveShadow
             rotation={[-Math.PI / 2, 0, 0]}
@@ -100,7 +99,7 @@ const CarCanvas = () => {
             <circleGeometry args={[50, 74]} />
             <MeshReflectorMaterial
               blur={[300, 100]}
-              resolution={2048}
+              resolution={480}
               mixBlur={1}
               mixStrength={40}
               roughness={1}
@@ -110,7 +109,8 @@ const CarCanvas = () => {
               color="#050505"
               metalness={0.6}
             />
-          </mesh>
+          </mesh>{" "}
+          <Light />
           <Cards />
           <Texts />
         </Canvas>
@@ -189,14 +189,14 @@ function Light() {
       />
       <mesh position={[0, -2, 0]} ref={circle}>
         <cylinderGeometry args={[9, 15, 3, 64]} />
-        <meshStandardMaterial color={"black"} />
+        <meshStandardMaterial color={"black"} resolution={420} />
       </mesh>
     </>
   );
 }
 function Cards(props) {
   const mesh = useRef();
-  const taycan = useLoader(GLTFLoader, "./Models/porshe_taycan/taycan.gltf");
+  const taycan = useLoader(GLTFLoader, "./Models/porshe_taycan/taycan.glb");
 
   const bind = useGesture({
     onDrag: ({ offset: [x, y] }) => {
