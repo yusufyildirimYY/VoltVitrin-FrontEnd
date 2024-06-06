@@ -1,0 +1,28 @@
+nav {
+  position: absolute;
+  z-index: 1000;
+  top: 0;
+  margin-right: auto;
+  margin-left: auto;
+}
+.link {
+  font-size: 120%;
+  padding-inline: 16px;
+  padding-block: 4px;
+  letter-spacing: 0.5px;
+}
+.logo {
+  font-family: "Noto Serif", serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+.Shadow {
+  text-shadow: -1px 1px 5px rgba(0, 0, 0, 0.82);
+}
+
+.SvgShadow {
+  filter: drop-shadow(-1px 2px 5px rgba(0, 0, 0, 0.82));
+}
