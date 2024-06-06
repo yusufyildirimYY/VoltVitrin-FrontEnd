@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-
-const CompareCards = ({ Database }) => {
+import "./CompareCards.css";
+const CompareCards = ({ Database, mirror }) => {
   const [selectedBrand, setSelectedBrand] = useState(null);
   const [selectedModel, setSelectedModel] = useState(null);
 
@@ -59,16 +59,16 @@ const CompareCards = ({ Database }) => {
   return (
     <div className=" border-2 mb-10 rounded-3xl overflow-hidden  ">
       <img
-        className="w-screen h-72 border-b-2   "
+        className={`w-screen h-72 border-b-2 ${mirror}  `}
         src={getSelectedCarImage(selectedBrand, selectedModel)}
         alt=""
       />
-      <div className=" mx-4 mt-2 mb-7">
+      <div className=" mx-4 mt-10 mb-16 flex flex-col  space-y-10">
         <div className="mb-2">
           <form className=" w-full">
             <label
               htmlFor="Brand"
-              className="block text-m font-medium text-gray-900 dark:text-white "
+              className="block  text-lg  font-bold text-gray-900 dark:text-white "
             >
               Brand
             </label>
@@ -91,7 +91,7 @@ const CompareCards = ({ Database }) => {
           <form className="w-full">
             <label
               for="Model"
-              className="block text-m font-medium text-gray-900 dark:text-white "
+              className="block text-lg  font-bold text-gray-900 dark:text-white "
             >
               Model
             </label>
