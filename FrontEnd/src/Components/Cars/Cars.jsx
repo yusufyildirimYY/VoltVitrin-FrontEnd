@@ -15,7 +15,7 @@ const Dropdown = ({
     <div className="relative inline-block text-left px-9">
       <button
         onClick={toggleDropdown}
-        className="text-black font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center"
+        className="text-black font-medium rounded-lg text-xl px-5 py-2.5 text-center inline-flex items-center"
         type="button"
       >
         {selectedItem ? selectedItem : label}
@@ -136,7 +136,7 @@ const Cars = ({ Database }) => {
 
   return (
     <div className="max-w-screen-xl mx-auto p-10">
-      <div className="h-16 flex flex-row-reverse space-x-4 space-x-reverse">
+      <div className="h-16 flex flex-row-reverse space-x-4 space-x-reverse mt-5">
         <Dropdown
           isOpen={isDropdownOpen}
           toggleDropdown={toggleDropdowns.brand}
