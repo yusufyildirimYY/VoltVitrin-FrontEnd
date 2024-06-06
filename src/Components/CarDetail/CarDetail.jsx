@@ -1,16 +1,15 @@
 import { useParams } from "react-router-dom";
 import ImageSlider from "./ImageSlider";
-import { GiSteeringWheel } from "react-icons/gi";
-import { IoMdSpeedometer } from "react-icons/io";
-import { FaRoad } from "react-icons/fa";
-import { GiCarSeat } from "react-icons/gi";
-import { PiSpeedometerFill } from "react-icons/pi";
-import { BsLuggageFill } from "react-icons/bs";
-import { PiPlugChargingBold } from "react-icons/pi";
-import { MdBatteryCharging30 } from "react-icons/md";
-import { PiPlugChargingFill } from "react-icons/pi";
-import { IoMdBatteryCharging } from "react-icons/io";
-
+import DirectionsCarIcon from "@mui/icons-material/DirectionsCar";
+import SpeedIcon from "@mui/icons-material/Speed";
+import AddRoadIcon from "@mui/icons-material/AddRoad";
+import AirlineSeatReclineNormalIcon from "@mui/icons-material/AirlineSeatReclineNormal";
+import FastForwardIcon from "@mui/icons-material/FastForward";
+import LuggageIcon from "@mui/icons-material/Luggage";
+import PowerOutlinedIcon from "@mui/icons-material/PowerOutlined";
+import Battery3BarIcon from "@mui/icons-material/Battery3Bar";
+import PowerIcon from "@mui/icons-material/Power";
+import BatteryChargingFullIcon from "@mui/icons-material/BatteryChargingFull";
 import "./CarDetail.css";
 const CarDetail = ({ Database }) => {
   const { modelName } = useParams();
@@ -58,64 +57,64 @@ const CarDetail = ({ Database }) => {
           <div className="w-full  ">
             <div className="containerb ">
               <div className="space-y-2  flex flex-col items-center div1">
-                <GiSteeringWheel size="3em" />
+                <DirectionsCarIcon className="scale-300 mb-6" />
                 <p className="text-2xl font-semibold ">Drivetrain</p>
                 <p className="whitespace-nowrap ">{carDetails.Drive}</p>
               </div>
               <div className="space-y-2 flex  flex-col items-center div2">
-                <IoMdSpeedometer size="3em" />
+                <SpeedIcon className="scale-300 mb-6" />
                 <p className="text-2xl font-semibold whitespace-nowrap">
                   Top Speed
                 </p>
                 <p>{carDetails.Top_Speed + " Km/h"}</p>
               </div>
               <div className="space-y-2 flex flex-col items-center">
-                <FaRoad size="3em" />
+                <AddRoadIcon className="scale-300 mb-6" />
                 <p className="text-2xl font-semibold">Range</p>
                 <p className="whitespace-nowrap">{carDetails.Range + " Km"}</p>
               </div>
               <div className="space-y-2 flex flex-col items-center">
-                <GiCarSeat size="3em" />
+                <AirlineSeatReclineNormalIcon className="scale-300 mb-6" />
                 <p className="text-2xl font-semibold ">Seat</p>
                 <p className="">{carDetails.Seat}</p>
               </div>
               <div className="space-y-2 flex flex-col items-center">
-                <PiSpeedometerFill size="3em" />
+                <FastForwardIcon className="scale-300 mb-6" />
                 <p className="text-2xl font-semibold whitespace-nowrap">
                   0-100 Acceleration
                 </p>
                 <p>{carDetails.Acceleration + " Second"}</p>
               </div>
               <div className="space-y-2 flex flex-col items-center">
-                <BsLuggageFill size="3em" />
+                <LuggageIcon className="scale-300 mb-6" />
                 <p className="whitespace-nowrap text-2xl font-semibold  px-2">
                   Cargo Space
                 </p>
                 <p className="">{carDetails.Cargo + " Liter"}</p>
               </div>
               <div className="space-y-2 flex flex-col items-center">
-                <PiPlugChargingBold size="3em" />
+                <PowerOutlinedIcon className="scale-300 mb-6" />
                 <p className="text-2xl font-semibold whitespace-nowrap">
                   Charge Power
                 </p>
                 <p>{carDetails.ChargePower}</p>
               </div>
               <div className="space-y-2 flex flex-col items-center">
-                <MdBatteryCharging30 size="3em" />
+                <Battery3BarIcon className="scale-300 mb-6" />
                 <p className="text-2xl font-semibold whitespace-nowrap">
                   Charge Speed
                 </p>
                 <p>{carDetails.ChargeSpeed}</p>
               </div>
               <div className="space-y-2 flex flex-col items-center">
-                <PiPlugChargingFill size="3em" />
+                <PowerIcon className="scale-300 mb-6" />
                 <p className="text-2xl font-semibold whitespace-nowrap">
                   Fast Charge Power
                 </p>
                 <p>{carDetails.FastChargePower}</p>
               </div>
               <div className="space-y-2 flex flex-col items-center">
-                <IoMdBatteryCharging size="3em" />
+                <BatteryChargingFullIcon className="scale-300 mb-6" />
                 <p className="text-2xl font-semibold whitespace-nowrap">
                   Fast Charge Speed
                 </p>

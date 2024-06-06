@@ -8,8 +8,8 @@ import {
   Text,
 } from "@react-three/drei";
 import { Perf } from "r3f-perf";
-import { AiOutlineFullscreen } from "react-icons/ai";
-import { AiOutlineFullscreenExit } from "react-icons/ai";
+import FullscreenIcon from "@mui/icons-material/Fullscreen";
+import FullscreenExitIcon from "@mui/icons-material/FullscreenExit";
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/Addons.js";
 import { useGesture } from "react-use-gesture";
@@ -62,12 +62,12 @@ const CarCanvas = () => {
       >
         {isFullScreen ? (
           <>
-            <AiOutlineFullscreenExit className="fsicon" size="3rem" />
+            <FullscreenExitIcon className="scale-300 mb-4" />
             <p className="fsicon">Exit</p>
           </>
         ) : (
           <>
-            <AiOutlineFullscreen className="fsicon" size="3rem" />
+            <FullscreenIcon className="scale-300 mb-4" />
             <p className="fsicon">Full Screen</p>
           </>
         )}

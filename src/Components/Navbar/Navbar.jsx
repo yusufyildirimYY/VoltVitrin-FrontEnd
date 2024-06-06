@@ -1,7 +1,6 @@
 import "./Navbar.css";
 import { Link, useLocation } from "react-router-dom";
-// import { BsLightningFill } from "react-icons/bs";
-
+import FlashOnIcon from "@mui/icons-material/FlashOn";
 function Navbar() {
   const location = useLocation();
   const isCarRoute = location.pathname === "/cars";
@@ -25,8 +24,8 @@ function Navbar() {
           <li
             className={`flex logo absolute left-5 text-center items-center ${Shadow} cursor-default`}
           >
-            {/* <BsLightningFill className={`h-10 w-7 ${svgShadow}`} /> */}
-            <p className="text-3xl">VoltVitrin</p>
+            <FlashOnIcon className={`scale-125 ${svgShadow}`} />
+            <p className="text-3xl ">VoltVitrin</p>
           </li>
           <li
             className={`link  rounded-md transition duration-700 ease-in-out   shadow-black ${Shadow}  ${LinkBg}`}
