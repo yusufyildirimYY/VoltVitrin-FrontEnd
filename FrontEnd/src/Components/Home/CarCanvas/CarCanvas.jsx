@@ -14,12 +14,16 @@ import {
   useTexture,
   PivotControls,
   Svg,
+  Text3D,
 } from "@react-three/drei";
 import { Perf } from "r3f-perf";
 import { AiOutlineFullscreen } from "react-icons/ai";
 import { AiOutlineFullscreenExit } from "react-icons/ai";
 import * as THREE from "three";
-import { GLTFLoader, SVGLoader } from "three/examples/jsm/Addons.js";
+import { GLTFLoader } from "three/examples/jsm/Addons.js";
+import { useGesture } from "react-use-gesture";
+import font from "./2.json";
+import { animated, useSpring, useTransition } from "@react-spring/three";
 
 const CarCanvas = () => {
   const canvasContainerRef = useRef(null);
@@ -86,7 +90,7 @@ const CarCanvas = () => {
           dpr={[1, 1.5]}
           camera={{
             fov: 90,
-            position: [0, 5, 13],
+            position: [0, 5, 15],
           }}
         >
           {/* <Perf /> */}
@@ -111,8 +115,8 @@ const CarCanvas = () => {
               metalness={0.6}
             />
           </mesh>
-          <OrbitControls enableZoom={false} enablePan={false} />
           <Cards />
+          <Texts />
         </Canvas>
       </div>
     </div>
@@ -188,42 +192,68 @@ function Light() {
         opacity={0.2}
       />
       <mesh position={[0, -2, 0]} ref={circle}>
-        <cylinderGeometry args={[6, 10, 3, 64]} />
+        <cylinderGeometry args={[9, 15, 3, 64]} />
         <meshStandardMaterial color={"black"} />
       </mesh>
     </>
   );
 }
-function Cards() {
-  const [dragging, setDragging] = useState(false);
-
-  const mesh1 = useRef();
-
+function Cards(props) {
+  const mesh = useRef();
   const taycan = useLoader(GLTFLoader, "./Models/porshe_taycan/taycan.gltf");
 
-  const bind = useDrag(
-    ({ offset: [x, y] }) => {
-      meshRef.current.rotation.x += y * 0.01;
-      meshRef.current.rotation.y += x * 0.01;
+  const bind = useGesture({
+    onDrag: ({ offset: [x, y] }) => {
+      mesh.current.rotation.y = x / 100;
     },
-    {
-      onDragStart: () => setDragging(true),
-      onDragEnd: () => setDragging(false),
-    }
-  );
+  });
   return (
     <>
       <group rotation={[0, 0, 0]}>
         <primitive
-          ref={mesh1}
+          ref={mesh}
+          {...bind()}
+          {...props}
           position={[0, -0.45, 0]}
           rotation={[0, 0, 0]}
           object={taycan.scene}
-          scale={2}
+          scale={3}
         />
       </group>
     </>
   );
 }
 
+function Texts() {
+  return (
+    <>
+      <Text3D
+        font={font}
+        position={[-14, 7, 3]}
+        rotation={[0, 0.5, 0]}
+        curveSegments={32}
+        height={0.1}
+        lineHeight={0.9}
+        letterSpacing={0.1}
+        size={1.5}
+      >
+        {"Most Popular Car\n  Of This Month"}
+      </Text3D>
+      <group>
+        <Text3D
+          font={font}
+          position={[4.5, 5, 3]}
+          rotation={[0, -0.7, 0]}
+          curveSegments={32}
+          height={0.2}
+          lineHeight={0.8}
+          letterSpacing={0.01}
+          size={1}
+        >
+          {"Porsche\nTaycan"}
+        </Text3D>
+      </group>
+    </>
+  );
+}
 export default CarCanvas;
