@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Canvas, useLoader, useThree } from "@react-three/fiber";
+import React, { Suspense, useEffect, useRef, useState } from "react";
+import { Canvas, useFrame, useLoader, useThree } from "@react-three/fiber";
 import "./CarCanvas.css";
 import {
   MeshReflectorMaterial,
@@ -7,6 +7,7 @@ import {
   OrbitControls,
   useDepthBuffer,
   Text3D,
+  Text,
 } from "@react-three/drei";
 import { Perf } from "r3f-perf";
 import { AiOutlineFullscreen } from "react-icons/ai";
@@ -55,7 +56,6 @@ const CarCanvas = () => {
     return () => window.removeEventListener("beforeunload", cleanup);
   }, []);
 
-  const { DEG2RAD } = THREE.MathUtils;
   return (
     <div className="CanvasContainer" ref={canvasContainerRef}>
       <button
@@ -109,10 +109,12 @@ const CarCanvas = () => {
               color="#050505"
               metalness={0.6}
             />
-          </mesh>{" "}
-          <Light />
-          <Cards />
-          <Texts />
+          </mesh>
+          <Suspense fallback={<Text position={[0, 0, 0]}>LOADING...</Text>}>
+            <Light />
+            <Cards />
+            <Texts />
+          </Suspense>
         </Canvas>
       </div>
     </div>
@@ -196,7 +198,7 @@ function Light() {
 }
 function Cards(props) {
   const mesh = useRef();
-  const taycan = useLoader(GLTFLoader, "./Models/porshe_taycan/taycan.glb");
+  const taycan = useLoader(GLTFLoader, "./Models/porshe_taycan/taycan.gltf");
 
   const bind = useGesture({
     onDrag: ({ offset: [x, y] }) => {
