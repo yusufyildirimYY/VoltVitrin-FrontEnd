@@ -17,7 +17,10 @@ const Tabs = ({ Database }) => {
 
   return (
     <div className="TabContainer max-w-screen-xl mx-auto  p-10">
-      <div style={{ display: "flex", borderBottom: "2px solid black" }}>
+      <div
+        className="text-xl"
+        style={{ display: "flex", borderBottom: "2px solid black" }}
+      >
         <div
           onClick={() => handleTabClick("Most Range")}
           style={tabStyle("Most Range")}

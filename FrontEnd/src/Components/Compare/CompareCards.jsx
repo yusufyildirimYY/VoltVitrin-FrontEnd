@@ -57,7 +57,7 @@ const CompareCards = ({ Database }) => {
     }).format(price);
   };
   return (
-    <div className=" border-2  rounded-3xl overflow-hidden ">
+    <div className=" border-2 mb-10 rounded-3xl overflow-hidden  ">
       <img
         className="w-screen h-72 border-b-2   "
         src={getSelectedCarImage(selectedBrand, selectedModel)}
@@ -67,7 +67,7 @@ const CompareCards = ({ Database }) => {
         <div className="mb-2">
           <form className=" w-full">
             <label
-              for="Brand"
+              htmlFor="Brand"
               className="block text-m font-medium text-gray-900 dark:text-white "
             >
               Brand
@@ -111,7 +111,7 @@ const CompareCards = ({ Database }) => {
         </div>
       </div>
       {selectedBrand && selectedModel && (
-        <div className="border-t-2">
+        <div className="border-t-2 ">
           <div className="border-b-2 flex  text-2xl w-full text-center ">
             <p className="w-64 p-2 text-start">Price</p>
             <p className="mr-auto p-2 border-l-2">
