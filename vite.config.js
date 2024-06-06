@@ -11,6 +11,10 @@ export default defineConfig({
       "react-router-dom",
       "react-icons/bs",
       "react-icons/gi",
+      "react-icons/io",
+      "react-icons/fa",
+      "react-icons/pi",
+      "react-icons/md",
     ],
     output: {
       globals: {
