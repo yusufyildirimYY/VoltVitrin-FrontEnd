@@ -15,13 +15,6 @@ const CarDetail = ({ Database }) => {
   const { modelName } = useParams();
   const carDetails = Database.find((car) => car.Model === modelName);
 
-  if (!carDetails) {
-    return (
-      <div className="flex justify-center items-center  w-full h-screen absolute top-0">
-        <div className=" text-9xl ">Car not found</div>
-      </div>
-    );
-  }
   const formatPrice = (price) => {
     return new Intl.NumberFormat("en-US", {
       style: "currency",
@@ -29,11 +22,10 @@ const CarDetail = ({ Database }) => {
       minimumFractionDigits: 0,
     }).format(price);
   };
-  const image1 = "../../../public" + carDetails.ModelImage1.replace(/^\./, "");
-  const image2 = "../../../public" + carDetails.ModelImage2.replace(/^\./, "");
-  const image3 = "../../../public" + carDetails.ModelImage3.replace(/^\./, "");
-  const image4 = "../../../public" + carDetails.ModelImage4.replace(/^\./, "");
-
+  const image1 = `${import.meta.env.BASE_URL}${carDetails.ModelImage1}`;
+  const image2 = `${import.meta.env.BASE_URL}${carDetails.ModelImage2}`;
+  const image3 = `${import.meta.env.BASE_URL}${carDetails.ModelImage3}`;
+  const image4 = `${import.meta.env.BASE_URL}${carDetails.ModelImage4}`;
   return (
     <div className="flex h-screen z-10 relative">
       <ImageSlider
