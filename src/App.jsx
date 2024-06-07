@@ -11,8 +11,10 @@ function App() {
   const [Carlogo, setCarLogo] = useState([]);
   const [Database, setDatabase] = useState([]);
 
+  const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3000/api";
+
   useEffect(() => {
-    fetch("http://localhost:3000/?type=brands")
+    fetch(`${API_URL}?type=brands`)
       .then((response) => response.json())
       .then((data) => {
         const sortedData = data.sort((a, b) => {
@@ -27,7 +29,8 @@ function App() {
         setCarLogo(sortedData);
       })
       .catch((error) => console.error("Error fetching data:", error));
-    fetch("http://localhost:3000/?type=all")
+
+    fetch(`${API_URL}?type=all`)
       .then((response) => response.json())
       .then((data) => {
         const sortedData = data.sort((a, b) => {
@@ -42,7 +45,7 @@ function App() {
         setDatabase(sortedData);
       })
       .catch((error) => console.error("Error fetching data:", error));
-  }, []);
+  }, [API_URL]);
   return (
     <>
       <Navbar Carlogo={Carlogo} Database={Database} />
