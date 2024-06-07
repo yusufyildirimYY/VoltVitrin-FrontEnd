@@ -11,7 +11,8 @@ function App() {
   const [Carlogo, setCarLogo] = useState([]);
   const [Database, setDatabase] = useState([]);
 
-  const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3000/api";
+  const API_URL =
+    import.meta.env.REACT_APP_API_URL || "http://localhost:3000/api";
 
   useEffect(() => {
     fetch(`${API_URL}?type=brands`)
