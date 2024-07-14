@@ -106,7 +106,7 @@ const CarCanvas = () => {
           </mesh>
           <Suspense fallback={<Text position={[0, 0, 0]}>LOADING...</Text>}>
             <Light />
-            <Cards />
+            <Model />
             <Texts />
           </Suspense>
         </Canvas>
@@ -186,9 +186,9 @@ function Light() {
     </>
   );
 }
-function Cards() {
+function Model() {
   const mesh = useRef();
-  const taycan = useLoader(GLTFLoader, "./Models/porshe_taycan/taycan.gltf");
+  const taycan = useLoader(GLTFLoader, "./Models/porshe_taycan/taycan.glb");
 
   const bind = useGesture({
     onDrag: ({ offset: [x, y] }) => {
