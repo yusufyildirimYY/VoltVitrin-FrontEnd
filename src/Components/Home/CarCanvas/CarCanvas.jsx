@@ -91,18 +91,7 @@ const CarCanvas = () => {
             position={[0, -1, -5]}
           >
             <circleGeometry args={[50, 74]} />
-            <MeshReflectorMaterial
-              blur={[300, 100]}
-              resolution={480}
-              mixBlur={1}
-              mixStrength={40}
-              roughness={1}
-              depthScale={1.2}
-              minDepthThreshold={0.7}
-              maxDepthThreshold={1.1}
-              color="#050505"
-              metalness={0.6}
-            />
+            <meshBasicMaterial color="#0f0f0f" />
           </mesh>
           <Suspense fallback={<Text position={[0, 0, 0]}>LOADING...</Text>}>
             <Light />
@@ -181,7 +170,7 @@ function Light() {
       />
       <mesh position={[0, -2, 0]} ref={circle}>
         <cylinderGeometry args={[9, 15, 3, 64]} />
-        <meshStandardMaterial color={"black"} resolution={420} />
+        <meshStandardMaterial color={"black"} />
       </mesh>
     </>
   );
